@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetroClick — CRT Booth</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="boot-overlay" aria-hidden="true"></div>
+    <main class="app" id="app">
+      <section class="crt-shell" id="crt-shell">
+        <div class="crt-frame">
+          <div class="screen-wrap" id="screen-wrap">
+            <video id="video" playsinline autoplay muted></video>
+            <canvas id="live-canvas" width="640" height="480"></canvas>
+            <div class="scanlines"></div>
+            <div class="screen-glow"></div>
+            <div class="hud">
+              <span class="rec">REC <i></i></span>
+              <span class="active-filter" id="active-filter">FUJI VELVIA</span>
+            </div>
+            <div class="timestamp" id="timestamp"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" id="controls">
+        <div class="group">
+          <p>LIVE</p>
+          <div id="live-filter-buttons" class="chips"></div>
+        </div>
+        <div class="group">
+          <p>OVERLAYS</p>
+          <div class="chips tiny" id="overlay-buttons">
+            <button data-overlay="grain" class="active">grain</button>
+            <button data-overlay="dust">dust</button>
+            <button data-overlay="leak">leak</button>
+            <button data-overlay="timestamp">time</button>
+          </div>
+        </div>
+      </section>
+
+      <button class="shutter" id="shutter" aria-label="Capture photo"></button>
+
+      <section class="printer-zone" id="printer-zone">
+        <div class="printer-slot"></div>
+        <article class="photo-card" id="photo-card">
+          <canvas id="photo-canvas" width="768" height="576"></canvas>
+          <small>retroclick</small>
+        </article>
+      </section>
+
+      <section class="post" id="post">
+        <div class="processing" id="processing">Processing…</div>
+        <div class="group">
+          <p>AI</p>
+          <div id="ai-filter-buttons" class="chips"></div>
+        </div>
+        <div class="actions">
+          <button id="download-png">Download PNG</button>
+          <button id="download-jpg">Download JPG</button>
+          <button id="retake">Retake</button>
+          <a id="share-x" target="_blank" rel="noreferrer">Share on X</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
